@@ -1,4 +1,25 @@
 <?php
+use app\models\Country;
+use yii\grid\GridView;
+use yii\data\ActiveDataProvider;
+
+$dataProvider = new ActiveDataProvider([
+    'query' => Country::find(),    
+    'pagination' => [
+        'pageSize' => 20,
+    ],
+]);
+
+
+echo GridView::widget([
+    'dataProvider' => $dataProvider,
+    'columns' => [
+        [
+            'attribute' => 'updated_at',
+            'format' => ['date', 'php:d/m/Y']
+        ],
+    ]    
+]);
 
 /** @var yii\web\View $this */
 

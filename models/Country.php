@@ -24,7 +24,9 @@ class Country extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-        return [];
+        return [
+            [['updated_at'], 'timestamp', 'max' => 30],
+        ];
     }
 
     /**
@@ -34,6 +36,7 @@ class Country extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'updated_at' => 'Update date',
         ];
     }
 }
